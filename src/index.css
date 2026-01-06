@@ -1,0 +1,66 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+@import "tailwindcss";
+
+body {
+  background-color: #020617;
+  color: #f8fafc;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* ====== PATCH CSS: ANTI-CLIPPING (FIX) ====== */
+/* Aplica altura automática e remove cortes em toda a hierarquia da mensagem */
+
+/* 1. Container da linha */
+.chat-row {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  display: flex !important;
+  /* Mantém flex do layout */
+}
+
+/* 2. O Balão (Bubble) */
+.chat-bubble {
+  height: auto !important;
+  min-height: 44px;
+  /* Garante tamanho mínimo de toque/leitura */
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 14px 18px !important;
+  box-sizing: border-box !important;
+  display: block !important;
+}
+
+/* 3. O Texto dentro do balão */
+.chat-text {
+  white-space: pre-wrap !important;
+  /* Mantém quebras de linha */
+  overflow: visible !important;
+  text-overflow: clip !important;
+  word-break: break-word !important;
+  /* Quebra palavras longas se precisar */
+
+  /* Mata qualquer line-clamp que possa estar escondido */
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+  display: block !important;
+  line-height: 1.5 !important;
+}
