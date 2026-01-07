@@ -8,7 +8,7 @@ import type { ViewMode } from './types';
 import ConfigUser from './components/ConfigUser';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<ViewMode>('chat');
+  const [currentView, setCurrentView] = useState<ViewMode>('active');
 
   return (
     <div className="flex h-screen w-full bg-meta-dark font-sans overflow-hidden selection:bg-indigo-500/30">
